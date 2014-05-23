@@ -19,7 +19,7 @@ You should create one R script called `run_analysis.R` that does the following.
 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 Good luck!
 
-#### Code Book:
+#### README:
 
 	Note: Operating System OS X Version 10.9.2
 
