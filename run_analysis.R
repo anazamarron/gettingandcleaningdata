@@ -25,24 +25,27 @@ mean_std <- grep("-mean()|-std()", features[, 2])
 # extract the columns we need (we get a data.frame as result of this operation)
 totalX <- totalX[,mean_std]
 
+
+
+
+# 3. Uses descriptive activity names to name the activities in the data set
+
 # Add correct names to the columns and clean the names a little bit
 colnames(totalX) <- features[mean_std, 2]
 colnames(totalX) <- tolower(names(totalX))
 colnames(totalX) <- gsub("\\(\\)", "", names(totalX))
 colnames(totalX) <- gsub("-","_",names(totalX))
 
-
-# 3. Uses descriptive activity names to name the activities in the data set
-
 Activities <- read.table('UCI\ HAR\ Dataset/activity_labels.txt',stringsAsFactor=FALSE)
 Activities[, 2] <- tolower(as.character(Activities[, 2]))
 colnames(Activities)<-c("id","activity")
 
 # assign the value of avtivity to the totalY data.frame
-totalY[,1] <- activities[totalY[,1], 2]
-colnames(totalY) <- "activities"
+totalY[,1] <- Activities[totalY[,1], 2]
+
 
 # 4. Appropriately labels the data set with descriptive activity names.
+colnames(totalY) <- "activities"
 colnames(totalSubject) <- "subject"
 totalData <- cbind(totalSubject,totalY, totalX)
 
@@ -92,4 +95,4 @@ for (s in 1:numSubjects) {
 }
 
 # And write the result to disc
-write.table(finalData, "averages_subject_activity.txt")
+write.table(finalData, 'UCI\ HAR\ Dataset/averages_subject_activity.txt')

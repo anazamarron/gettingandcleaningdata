@@ -24,16 +24,7 @@ Good luck!
 	Note: Operating System OS X Version 10.9.2
 
 
-* __Create a directory in your local machine:__
-
-	`/Users/Shared/R/gettingandcleaningdata`
-
-* __Set the working directory in rStudio__
-
-	`setwd("/Users/Shared/R/gettingandcleaningdata")`
-
-
-* __Download__ <https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip> into your working directory `/Users/Shared/R/gettingandcleaningdata` and uncompress it there.
+* __Download__ <https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip> into your working directory and uncompress it there.
 
 You get the folder: `UCI HAR Dataset` with the following content:
 
@@ -70,9 +61,9 @@ You get the folder: `UCI HAR Dataset` with the following content:
 		* X_train.txt
 		* Y_train.txt
 
-* Put `run_analysis.R` in `/Users/Shared/R/gettingandcleaningdata`
+* Put `run_analysis.R` in your working directory
 
-* 
+* Run `run_analysis.R`
 
 
 		
