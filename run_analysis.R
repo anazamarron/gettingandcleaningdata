@@ -25,16 +25,14 @@ mean_std <- grep("-mean()|-std()", features[, 2])
 # extract the columns we need (we get a data.frame as result of this operation)
 totalX <- totalX[,mean_std]
 
-
-
-
-# 3. Uses descriptive activity names to name the activities in the data set
-
 # Add correct names to the columns and clean the names a little bit
 colnames(totalX) <- features[mean_std, 2]
 colnames(totalX) <- tolower(names(totalX))
 colnames(totalX) <- gsub("\\(\\)", "", names(totalX))
 colnames(totalX) <- gsub("-","_",names(totalX))
+
+
+# 3. Uses descriptive activity names to name the activities in the data set
 
 Activities <- read.table('UCI\ HAR\ Dataset/activity_labels.txt',stringsAsFactor=FALSE)
 Activities[, 2] <- tolower(as.character(Activities[, 2]))
