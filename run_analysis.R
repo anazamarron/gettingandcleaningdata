@@ -66,7 +66,7 @@ numSubjects <- length(a)
 # We allready have the activities in the activities darta.frame, order them and count them:
 numActivities <- length(Activities[,1])
 
-# Count the number of colums of cleaned data
+# Count the number of colums of totalData
 numColumns <- dim(totalData)[2]
 
 # Initializes a data.frame with the total number of columns 
@@ -85,10 +85,9 @@ for (s in 1:numSubjects) {
                 #activity name
                 finalData[row,2] <- Activities[a,2]
                 # subset of this subject and this activity
-                temporal <- subset(totalData, subject==s)
-                temporal <- subset(temporal, activities == Activities[a,1])
+                aux <- subset(totalData, subject==s & activities == Activities[a,2])          
                 #mean of the values
-                finalData[row,3:numColumns] <- colMeans(temporal[, 3:numColumns],na.rm=TRUE)
+                finalData[row,3:numColumns] <- colMeans(aux[, 3:numColumns],na.rm=TRUE)
                 row <-row+1
                 
         }
